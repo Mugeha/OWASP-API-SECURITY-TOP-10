@@ -78,3 +78,16 @@ If possible, avoid using functions that automatically bind a client's input into
 Allow changes only to the object's properties that should be updated by the client.
 Implement a schema-based response validation mechanism as an extra layer of security. As part of this mechanism, define and enforce data returned by all API methods.
 Keep returned data structures to the bare minimum, according to the business/functional requirements for the endpoint.
+
+## References
+
+### OWASP
+
+[API3:2019 Excessive Data Exposure - OWASP API Security Top 10 2019](https://owasp.org/API-Security/editions/2019/en/0xa3-excessive-data-exposure/)
+[API6:2019 - Mass Assignment - OWASP API Security Top 10 2019](https://owasp.org/API-Security/editions/2019/en/0xa6-mass-assignment/)
+[Mass Assignment Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html)
+
+### External
+
+[CWE-213: Exposure of Sensitive Information Due to Incompatible Policies](https://cwe.mitre.org/data/definitions/213.html)
+[CWE-915: Improperly Controlled Modification of Dynamically-Determined Object Attributes](https://cwe.mitre.org/data/definitions/915.html)
