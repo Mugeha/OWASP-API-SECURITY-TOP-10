@@ -25,6 +25,7 @@ Uses weak or predictable tokens to enforce authentication
 In order to perform user authentication the client has to issue an API request like the one below with the user credentials:
 
 POST /graphql
+```bash
 {
   "query":"mutation {
     login (username:\"<username>\",password:\"<password>\") {
@@ -32,11 +33,13 @@ POST /graphql
     }
    }"
 }
+```
 If credentials are valid, then an auth token is returned which should be provided in subsequent requests to identify the user. Login attempts are subject to restrictive rate limiting: only three requests are allowed per minute.
 
 To brute force log in with a victim's account, bad actors leverage GraphQL query batching to bypass the request rate limiting, speeding up the attack:
 
 POST /graphql
+```bash
 [
   {"query":"mutation{login(username:\"victim\",password:\"password\"){token}}"},
   {"query":"mutation{login(username:\"victim\",password:\"123456\"){token}}"},
@@ -44,7 +47,7 @@ POST /graphql
   ...
   {"query":"mutation{login(username:\"victim\",password:\"123\"){token}}"},
 ]
-
+```
 ### Scenario #2
 In order to update the email address associated with a user's account, clients should issue an API request like the one below:
 

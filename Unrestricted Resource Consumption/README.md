@@ -22,20 +22,22 @@ A social network implemented a “forgot password” flow using SMS verification
 Once a user clicks on "forgot password" an API call is sent from the user's browser to the back-end API:
 
 POST /initiate_forgot_password
-
+```bash
 {
   "step": 1,
   "user_number": "6501113434"
 }
+```
 Then, behind the scenes, an API call is sent from the back-end to a 3rd party API that takes care of the SMS delivering:
 
 POST /sms/send_reset_pass_code
 
 Host: willyo.net
-
+```bash
 {
   "phone_number": "6501113434"
 }
+```
 The 3rd party provider, Willyo, charges $0.05 per this type of call.
 
 An attacker writes a script that sends the first API call tens of thousands of times. The back-end follows and requests Willyo to send tens of thousands of text messages, leading the company to lose thousands of dollars in a matter of minutes.
@@ -45,7 +47,7 @@ An attacker writes a script that sends the first API call tens of thousands of t
 A GraphQL API Endpoint allows the user to upload a profile picture.
 
 POST /graphql
-
+```bash
 {
   "query": "mutation {
     uploadPic(name: \"pic1\", base64_pic: \"R0FOIEFOR0xJVA…\") {
@@ -53,6 +55,7 @@ POST /graphql
     }
   }"
 }
+```
 Once the upload is complete, the API generates multiple thumbnails with different sizes based on the uploaded picture. This graphical operation takes a lot of memory from the server.
 
 The API implements a traditional rate limiting protection - a user can't access the GraphQL endpoint too many times in a short period of time. The API also checks for the uploaded picture's size before generating thumbnails to avoid processing pictures that are too large.
@@ -60,13 +63,14 @@ The API implements a traditional rate limiting protection - a user can't access 
 An attacker can easily bypass those mechanisms, by leveraging the flexible nature of GraphQL:
 
 POST /graphql
-
+```bash
 [
   {"query": "mutation {uploadPic(name: \"pic1\", base64_pic: \"R0FOIEFOR0xJVA…\") {url}}"},
   {"query": "mutation {uploadPic(name: \"pic2\", base64_pic: \"R0FOIEFOR0xJVA…\") {url}}"},
   ...
   {"query": "mutation {uploadPic(name: \"pic999\", base64_pic: \"R0FOIEFOR0xJVA…\") {url}}"},
 }
+```
 Because the API does not limit the number of times the uploadPic operation can be attempted, the call will lead to exhaustion of server memory and Denial of Service.
 
 ### Scenario #3

@@ -20,11 +20,12 @@ An attacker duplicates the request and manipulates the HTTP method and endpoint 
 The attacker exploits the issue and sends a new invite with admin privileges:
 
 POST /api/invites/new
-
+```bash
 {
   "email": "attacker@somehost.com",
   "role":"admin"
 }
+```
 Later on, the attacker uses the maliciously crafted invite in order to create themselves an admin account and gain full access to the system.
 
 ### Scenario #2
