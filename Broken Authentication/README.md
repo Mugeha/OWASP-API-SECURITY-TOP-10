@@ -9,7 +9,7 @@ An API is vulnerable if it:
 - Permits weak passwords.
 - Sends sensitive authentication details, such as auth tokens and passwords in the URL.
 - Allows users to change their email address, current password, or do any other sensitive operations without asking for password confirmation.
-Doesn't validate the authenticity of tokens.
+- Doesn't validate the authenticity of tokens.
 Accepts unsigned/weakly signed JWT tokens ({"alg":"none"})
 Doesn't validate the JWT expiration date.
 Uses plain text, non-encrypted, or weakly hashed passwords.
