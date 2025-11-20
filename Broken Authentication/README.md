@@ -14,7 +14,7 @@ An API is vulnerable if it:
 - Doesn't validate the JWT expiration date.
 - Uses plain text, non-encrypted, or weakly hashed passwords.
 - Uses weak encryption keys.
-On top of that, a microservice is vulnerable if:
+- On top of that, a microservice is vulnerable if:
 
 Other microservices can access it without authentication
 Uses weak or predictable tokens to enforce authentication
@@ -22,6 +22,7 @@ Uses weak or predictable tokens to enforce authentication
 ## Example Attack Scenarios
 
 ### Scenario #1
+
 In order to perform user authentication the client has to issue an API request like the one below with the user credentials:
 
 POST /graphql
