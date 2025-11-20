@@ -12,7 +12,7 @@ An API is vulnerable if it:
 - Doesn't validate the authenticity of tokens.
 - Accepts unsigned/weakly signed JWT tokens ({"alg":"none"})
 - Doesn't validate the JWT expiration date.
-Uses plain text, non-encrypted, or weakly hashed passwords.
+- Uses plain text, non-encrypted, or weakly hashed passwords.
 Uses weak encryption keys.
 On top of that, a microservice is vulnerable if:
 
