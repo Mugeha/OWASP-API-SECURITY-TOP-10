@@ -68,6 +68,7 @@ Because the API does not require users to confirm their identity by providing th
 
 - Don't reinvent the wheel in authentication, token generation, or password storage. Use the standards.
 Credential recovery/forgot password endpoints should be treated as login endpoints in terms of brute force, rate limiting, and lockout protections.
+
 Require re-authentication for sensitive operations (e.g. changing the account owner email address/2FA phone number).
 Use the OWASP [Authentication Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html).
 Where possible, implement multi-factor authentication.
