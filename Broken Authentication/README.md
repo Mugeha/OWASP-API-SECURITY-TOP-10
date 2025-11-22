@@ -79,7 +79,7 @@ Use the OWASP [Authentication Cheatsheet](https://cheatsheetseries.owasp.org/che
 
 - Implement account lockout/captcha mechanisms to prevent brute force attacks against specific users. Implement weak-password checks.
 
-API keys should not be used for user authentication. They should only be used for API clients authentication.
+- API keys should not be used for user authentication. They should only be used for API clients authentication.
 
 ## References
 
