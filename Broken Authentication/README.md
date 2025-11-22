@@ -50,6 +50,7 @@ POST /graphql
 ]
 ```
 ### Scenario #2
+
 In order to update the email address associated with a user's account, clients should issue an API request like the one below:
 
 PUT /account
