@@ -57,11 +57,12 @@ PUT /account
 Authorization: Bearer <token>
 
 { "email": "<new_email_address>" }
+
 Because the API does not require users to confirm their identity by providing their current password, bad actors able to put themselves in a position to steal the auth token might be able to take over the victim's account by starting the reset password workflow after updating the email address of the victim's account.
 
 ## How To Prevent
 
-Make sure you know all the possible flows to authenticate to the API (mobile/ web/deep links that implement one-click authentication/etc.). Ask your engineers what flows you missed.
+- Make sure you know all the possible flows to authenticate to the API (mobile/ web/deep links that implement one-click authentication/etc.). Ask your engineers what flows you missed.
 Read about your authentication mechanisms. Make sure you understand what and how they are used. OAuth is not authentication, and neither are API keys.
 Don't reinvent the wheel in authentication, token generation, or password storage. Use the standards.
 Credential recovery/forgot password endpoints should be treated as login endpoints in terms of brute force, rate limiting, and lockout protections.
