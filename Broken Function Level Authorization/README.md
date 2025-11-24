@@ -7,6 +7,7 @@ The best way to find broken function level authorization issues is to perform a 
 - Can a user perform sensitive actions (e.g. creation, modification, or deletion ) that they should not have access to by simply changing the HTTP method (e.g. from GET to DELETE)?
 
 - Can a user from group X access a function that should be exposed only to users from group Y, by simply guessing the endpoint URL and parameters (e.g. /api/v1/users/export_all)?
+
 Don't assume that an API endpoint is regular or administrative only based on the URL path.
 
 While developers might choose to expose most of the administrative endpoints under a specific relative path, like /api/admins, it's very common to find these administrative endpoints under other relative paths together with regular endpoints, like /api/users.
