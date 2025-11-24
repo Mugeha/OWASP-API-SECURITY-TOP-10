@@ -2,7 +2,7 @@
 
 The best way to find broken function level authorization issues is to perform a deep analysis of the authorization mechanism while keeping in mind the user hierarchy, different roles or groups in the application, and asking the following questions:
 
-Can a regular user access administrative endpoints?
+- Can a regular user access administrative endpoints?
 Can a user perform sensitive actions (e.g. creation, modification, or deletion ) that they should not have access to by simply changing the HTTP method (e.g. from GET to DELETE)?
 Can a user from group X access a function that should be exposed only to users from group Y, by simply guessing the endpoint URL and parameters (e.g. /api/v1/users/export_all)?
 Don't assume that an API endpoint is regular or administrative only based on the URL path.
